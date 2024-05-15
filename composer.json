@@ -1,9 +1,8 @@
 {
-    "name": "brick/money",
+    "name": "makana/custom-money",
     "description": "Money and currency library",
     "type": "library",
     "keywords": [
-        "Brick",
         "Money",
         "Currency"
     ],
