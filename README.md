@@ -4,10 +4,10 @@
 
 A money and currency library for PHP.
 
-[![Build Status](https://github.com/brick/money/workflows/CI/badge.svg)](https://github.com/brick/money/actions)
-[![Coverage Status](https://coveralls.io/repos/github/brick/money/badge.svg?branch=master)](https://coveralls.io/github/brick/money?branch=master)
-[![Latest Stable Version](https://poser.pugx.org/brick/money/v/stable)](https://packagist.org/packages/brick/money)
-[![Total Downloads](https://poser.pugx.org/brick/money/downloads)](https://packagist.org/packages/brick/money)
+[![Build Status](https://github.com/makana/custom-money/workflows/CI/badge.svg)](https://github.com/makana/custom-money/actions)
+[![Coverage Status](https://coveralls.io/repos/github/makana/custom-money/badge.svg?branch=master)](https://coveralls.io/github/makana/custom-money?branch=master)
+[![Latest Stable Version](https://poser.pugx.org/makana/custom-money/v/stable)](https://packagist.org/packages/makana/custom-money)
+[![Total Downloads](https://poser.pugx.org/makana/custom-money/downloads)](https://packagist.org/packages/makana/custom-money)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](http://opensource.org/licenses/MIT)
 
 ## Introduction
@@ -21,7 +21,7 @@ This library is based on [brick/math](https://github.com/brick/math) and handles
 This library is installable via [Composer](https://getcomposer.org/):
 
 ```bash
-composer require brick/money
+composer require makana/custom-money
 ```
 
 ### Requirements
@@ -42,7 +42,7 @@ The current releases are numbered `0.x.y`. When a non-breaking change is introdu
 
 It is therefore safe to lock your project to a given release cycle, such as `0.9.*`.
 
-If you need to upgrade to a newer release cycle, check the [release history](https://github.com/brick/money/releases) for a list of changes introduced by each further `0.x.0` version.
+If you need to upgrade to a newer release cycle, check the [release history](https://github.com/makana/custom-money/releases) for a list of changes introduced by each further `0.x.0` version.
 
 ## Creating a Money
 
@@ -322,7 +322,7 @@ $configuration = new PDOProviderConfiguration(
 $provider = new PDOProvider($pdo, $configuration);
 ```
 
-PDOProvider also supports fixed source or target currency, and dynamic `WHERE` conditions. Check the [PDOProviderConfiguration](https://github.com/brick/money/blob/0.9.0/src/ExchangeRateProvider/PDOProviderConfiguration.php) class for more information.
+PDOProvider also supports fixed source or target currency, and dynamic `WHERE` conditions. Check the [PDOProviderConfiguration](https://github.com/makana/custom-money/blob/0.9.0/src/ExchangeRateProvider/PDOProviderConfiguration.php) class for more information.
 
 ### BaseCurrencyProvider
 
@@ -475,4 +475,4 @@ If you're using an ORM such as Doctrine, it is advised to store the amount and c
 
 > How does this project compare with [moneyphp/money](https://github.com/moneyphp/money)?
 
-Please see [this discussion](https://github.com/brick/money/issues/28).
+Please see [this discussion](https://github.com/makana/custom-money/issues/28).
