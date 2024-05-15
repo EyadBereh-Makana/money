@@ -14,7 +14,7 @@ use Brick\Math\RoundingMode;
 /**
  * Converts monies into different currencies, using an exchange rate provider.
  */
-final class CurrencyConverter
+class CurrencyConverter
 {
     /**
      * The exchange rate provider.
@@ -47,7 +47,7 @@ final class CurrencyConverter
         Currency|string|int $currency,
         ?Context $context = null,
         RoundingMode $roundingMode = RoundingMode::UNNECESSARY,
-    ) : Money {
+    ): Money {
         return $this
             ->convertToRational($moneyContainer, $currency)
             ->to($context ?? new DefaultContext(), $roundingMode);
@@ -63,9 +63,9 @@ final class CurrencyConverter
      *
      * @throws CurrencyConversionException If the exchange rate is not available.
      */
-    public function convertToRational(MoneyContainer $moneyContainer, Currency|string|int $currency) : RationalMoney
+    public function convertToRational(MoneyContainer $moneyContainer, Currency|string|int $currency): RationalMoney
     {
-        if (! $currency instanceof Currency) {
+        if (!$currency instanceof Currency) {
             $currency = Currency::of($currency);
         }
 

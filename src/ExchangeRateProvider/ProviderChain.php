@@ -11,7 +11,7 @@ use Brick\Money\ExchangeRateProvider;
 /**
  * A chain of exchange rate providers.
  */
-final class ProviderChain implements ExchangeRateProvider
+class ProviderChain implements ExchangeRateProvider
 {
     /**
      * The exchange rate providers, indexed by object hash.
@@ -31,7 +31,7 @@ final class ProviderChain implements ExchangeRateProvider
      *
      * @return ProviderChain This instance, for chaining.
      */
-    public function addExchangeRateProvider(ExchangeRateProvider $provider) : self
+    public function addExchangeRateProvider(ExchangeRateProvider $provider): self
     {
         $hash = spl_object_id($provider);
         $this->providers[$hash] = $provider;
@@ -48,7 +48,7 @@ final class ProviderChain implements ExchangeRateProvider
      *
      * @return ProviderChain This instance, for chaining.
      */
-    public function removeExchangeRateProvider(ExchangeRateProvider $provider) : self
+    public function removeExchangeRateProvider(ExchangeRateProvider $provider): self
     {
         $hash = spl_object_id($provider);
         unset($this->providers[$hash]);

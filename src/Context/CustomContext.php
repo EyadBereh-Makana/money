@@ -13,7 +13,7 @@ use Brick\Money\Currency;
 /**
  * Adjusts a number to a custom scale, and optionally step.
  */
-final class CustomContext implements Context
+class CustomContext implements Context
 {
     /**
      * The scale of the monies using this context.
@@ -40,7 +40,7 @@ final class CustomContext implements Context
     /**
      * {@inheritdoc}
      */
-    public function applyTo(BigNumber $amount, Currency $currency, RoundingMode $roundingMode) : BigDecimal
+    public function applyTo(BigNumber $amount, Currency $currency, RoundingMode $roundingMode): BigDecimal
     {
         if ($this->step === 1) {
             return $amount->toScale($this->scale, $roundingMode);
@@ -56,7 +56,7 @@ final class CustomContext implements Context
     /**
      * {@inheritdoc}
      */
-    public function getStep() : int
+    public function getStep(): int
     {
         return $this->step;
     }
@@ -64,7 +64,7 @@ final class CustomContext implements Context
     /**
      * {@inheritdoc}
      */
-    public function isFixedScale() : bool
+    public function isFixedScale(): bool
     {
         return true;
     }
@@ -74,7 +74,7 @@ final class CustomContext implements Context
      *
      * @return int
      */
-    public function getScale() : int
+    public function getScale(): int
     {
         return $this->scale;
     }

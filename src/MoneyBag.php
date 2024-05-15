@@ -11,7 +11,7 @@ use Brick\Math\BigRational;
  *
  * This class is mutable.
  */
-final class MoneyBag implements MoneyContainer
+class MoneyBag implements MoneyContainer
 {
     /**
      * The amounts in this bag, indexed by currency code.
@@ -31,7 +31,7 @@ final class MoneyBag implements MoneyContainer
      *
      * @return BigRational
      */
-    public function getAmount(Currency|string|int $currency) : BigRational
+    public function getAmount(Currency|string|int $currency): BigRational
     {
         if (is_int($currency)) {
             $currencyCode = (string) Currency::of($currency);
@@ -49,7 +49,7 @@ final class MoneyBag implements MoneyContainer
      *
      * @return BigRational[]
      */
-    public function getAmounts() : array
+    public function getAmounts(): array
     {
         return $this->amounts;
     }
@@ -61,7 +61,7 @@ final class MoneyBag implements MoneyContainer
      *
      * @return MoneyBag This instance.
      */
-    public function add(MoneyContainer $money) : MoneyBag
+    public function add(MoneyContainer $money): MoneyBag
     {
         foreach ($money->getAmounts() as $currencyCode => $amount) {
             $this->amounts[$currencyCode] = $this->getAmount($currencyCode)->plus($amount);
@@ -77,7 +77,7 @@ final class MoneyBag implements MoneyContainer
      *
      * @return MoneyBag This instance.
      */
-    public function subtract(MoneyContainer $money) : MoneyBag
+    public function subtract(MoneyContainer $money): MoneyBag
     {
         foreach ($money->getAmounts() as $currencyCode => $amount) {
             $this->amounts[$currencyCode] = $this->getAmount($currencyCode)->minus($amount);

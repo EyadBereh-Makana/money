@@ -9,7 +9,7 @@ use Brick\Money\Exception\UnknownCurrencyException;
 /**
  * Provides ISO 4217 currencies.
  */
-final class ISOCurrencyProvider
+class ISOCurrencyProvider
 {
     private static ?ISOCurrencyProvider $instance = null;
 
@@ -69,7 +69,7 @@ final class ISOCurrencyProvider
      *
      * @return ISOCurrencyProvider
      */
-    public static function getInstance() : ISOCurrencyProvider
+    public static function getInstance(): ISOCurrencyProvider
     {
         if (self::$instance === null) {
             self::$instance = new ISOCurrencyProvider();
@@ -87,7 +87,7 @@ final class ISOCurrencyProvider
      *
      * @throws UnknownCurrencyException If the currency code is not known.
      */
-    public function getCurrency(string|int $currencyCode) : Currency
+    public function getCurrency(string|int $currencyCode): Currency
     {
         if (is_int($currencyCode)) {
             if ($this->numericToCurrency === null) {
@@ -105,11 +105,11 @@ final class ISOCurrencyProvider
             return $this->currencies[$currencyCode];
         }
 
-        if (! isset($this->currencyData[$currencyCode])) {
+        if (!isset($this->currencyData[$currencyCode])) {
             throw UnknownCurrencyException::unknownCurrency($currencyCode);
         }
 
-        $currency = new Currency(... $this->currencyData[$currencyCode]);
+        $currency = new Currency(...$this->currencyData[$currencyCode]);
 
         return $this->currencies[$currencyCode] = $currency;
     }
@@ -121,12 +121,12 @@ final class ISOCurrencyProvider
      *
      * @return Currency[] The currencies, indexed by currency code.
      */
-    public function getAvailableCurrencies() : array
+    public function getAvailableCurrencies(): array
     {
         if ($this->isPartial) {
             foreach ($this->currencyData as $currencyCode => $data) {
-                if (! isset($this->currencies[$currencyCode])) {
-                    $this->currencies[$currencyCode] = new Currency(... $data);
+                if (!isset($this->currencies[$currencyCode])) {
+                    $this->currencies[$currencyCode] = new Currency(...$data);
                 }
             }
 
@@ -147,7 +147,7 @@ final class ISOCurrencyProvider
      *
      * @throws UnknownCurrencyException If the country code is not known, or the country has no single currency.
      */
-    public function getCurrencyForCountry(string $countryCode) : Currency
+    public function getCurrencyForCountry(string $countryCode): Currency
     {
         $currencies = $this->getCurrenciesForCountry($countryCode);
 
@@ -179,7 +179,7 @@ final class ISOCurrencyProvider
      *
      * @return Currency[]
      */
-    public function getCurrenciesForCountry(string $countryCode) : array
+    public function getCurrenciesForCountry(string $countryCode): array
     {
         if ($this->countryToCurrency === null) {
             $this->countryToCurrency = require __DIR__ . '/../data/country-to-currency.php';

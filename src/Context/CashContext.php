@@ -14,7 +14,7 @@ use Brick\Math\RoundingMode;
 /**
  * Adjusts a number to the default scale for the currency, respecting a cash rounding.
  */
-final class CashContext implements Context
+class CashContext implements Context
 {
     /**
      * The cash rounding step, in minor units.
@@ -34,7 +34,7 @@ final class CashContext implements Context
     /**
      * {@inheritdoc}
      */
-    public function applyTo(BigNumber $amount, Currency $currency, RoundingMode $roundingMode) : BigDecimal
+    public function applyTo(BigNumber $amount, Currency $currency, RoundingMode $roundingMode): BigDecimal
     {
         $scale = $currency->getDefaultFractionDigits();
 
@@ -52,7 +52,7 @@ final class CashContext implements Context
     /**
      * {@inheritdoc}
      */
-    public function getStep() : int
+    public function getStep(): int
     {
         return $this->step;
     }
@@ -60,7 +60,7 @@ final class CashContext implements Context
     /**
      * {@inheritdoc}
      */
-    public function isFixedScale() : bool
+    public function isFixedScale(): bool
     {
         return true;
     }

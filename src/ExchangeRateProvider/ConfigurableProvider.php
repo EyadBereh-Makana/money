@@ -12,7 +12,7 @@ use Brick\Math\BigNumber;
 /**
  * A configurable exchange rate provider.
  */
-final class ConfigurableProvider implements ExchangeRateProvider
+class ConfigurableProvider implements ExchangeRateProvider
 {
     /**
      * @psalm-var array<string, array<string, BigNumber|int|float|string>>
@@ -26,7 +26,7 @@ final class ConfigurableProvider implements ExchangeRateProvider
      *
      * @return ConfigurableProvider This instance, for chaining.
      */
-    public function setExchangeRate(string $sourceCurrencyCode, string $targetCurrencyCode, $exchangeRate) : self
+    public function setExchangeRate(string $sourceCurrencyCode, string $targetCurrencyCode, $exchangeRate): self
     {
         $this->exchangeRates[$sourceCurrencyCode][$targetCurrencyCode] = $exchangeRate;
 

@@ -11,7 +11,7 @@ use Stringable;
 /**
  * A currency. This class is immutable.
  */
-final class Currency implements Stringable, JsonSerializable
+class Currency implements Stringable, JsonSerializable
 {
     /**
      * The currency code.
@@ -78,7 +78,7 @@ final class Currency implements Stringable, JsonSerializable
      *
      * @throws UnknownCurrencyException If an unknown currency code is given.
      */
-    public static function of(string|int $currencyCode) : Currency
+    public static function of(string|int $currencyCode): Currency
     {
         return ISOCurrencyProvider::getInstance()->getCurrency($currencyCode);
     }
@@ -92,7 +92,7 @@ final class Currency implements Stringable, JsonSerializable
      *
      * @throws UnknownCurrencyException If the country code is unknown, or there is no single currency for the country.
      */
-    public static function ofCountry(string $countryCode) : Currency
+    public static function ofCountry(string $countryCode): Currency
     {
         return ISOCurrencyProvider::getInstance()->getCurrencyForCountry($countryCode);
     }
@@ -105,7 +105,7 @@ final class Currency implements Stringable, JsonSerializable
      *
      * @return string
      */
-    public function getCurrencyCode() : string
+    public function getCurrencyCode(): string
     {
         return $this->currencyCode;
     }
@@ -118,7 +118,7 @@ final class Currency implements Stringable, JsonSerializable
      *
      * @return int
      */
-    public function getNumericCode() : int
+    public function getNumericCode(): int
     {
         return $this->numericCode;
     }
@@ -131,7 +131,7 @@ final class Currency implements Stringable, JsonSerializable
      *
      * @return string
      */
-    public function getName() : string
+    public function getName(): string
     {
         return $this->name;
     }
@@ -143,7 +143,7 @@ final class Currency implements Stringable, JsonSerializable
      *
      * @return int
      */
-    public function getDefaultFractionDigits() : int
+    public function getDefaultFractionDigits(): int
     {
         return $this->defaultFractionDigits;
     }
@@ -157,7 +157,7 @@ final class Currency implements Stringable, JsonSerializable
      *
      * @return bool
      */
-    public function is(Currency|string|int $currency) : bool
+    public function is(Currency|string|int $currency): bool
     {
         if ($currency instanceof Currency) {
             return $this->currencyCode === $currency->currencyCode;
@@ -167,7 +167,7 @@ final class Currency implements Stringable, JsonSerializable
             || ($this->numericCode !== 0 && $this->numericCode === (int) $currency);
     }
 
-    final public function jsonSerialize(): string
+    public function jsonSerialize(): string
     {
         return $this->currencyCode;
     }
@@ -175,7 +175,7 @@ final class Currency implements Stringable, JsonSerializable
     /**
      * Returns the currency code.
      */
-    public function __toString() : string
+    public function __toString(): string
     {
         return $this->currencyCode;
     }

@@ -11,7 +11,7 @@ use Brick\Money\Exception\CurrencyConversionException;
 /**
  * Reads exchange rates from a PDO database connection.
  */
-final class PDOProvider implements ExchangeRateProvider
+class PDOProvider implements ExchangeRateProvider
 {
     /**
      * The SELECT statement.
@@ -65,7 +65,7 @@ final class PDOProvider implements ExchangeRateProvider
         $this->sourceCurrencyCode = $sourceCurrencyCode;
         $this->targetCurrencyCode = $targetCurrencyCode;
 
-        $conditions = implode(' AND ' , $conditions);
+        $conditions = implode(' AND ', $conditions);
 
         $query = sprintf(
             'SELECT %s FROM %s WHERE %s',
@@ -83,7 +83,7 @@ final class PDOProvider implements ExchangeRateProvider
      * This is used in conjunction with $whereConditions in the configuration class.
      * The number of parameters passed to this method must match the number of placeholders.
      */
-    public function setParameters(mixed ...$parameters) : void
+    public function setParameters(mixed ...$parameters): void
     {
         $this->parameters = $parameters;
     }
